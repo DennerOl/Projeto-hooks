@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
+import { findProduct } from './data';
 
 function App() {
 
   const [productId, setProductId] = useState(1);
-  const [prod, setProd] = useState();
+  const [prod, setProd] = useState<any>();
 
   useEffect(() => {
     setProd(findProduct(productId));
   }, [productId])
 
   function handleClick() {
-
     setProductId(2);
 
   }
@@ -18,8 +18,8 @@ function App() {
   return (
     <>
 
-      <h2>{prod.name}</h2>
-      <p>{prod.price}</p>
+      <h2>{prod?.name}</h2>
+      <p>{prod?.price}</p>
 
       <br />
       <button onClick={handleClick}>proximo produto</button>
@@ -29,3 +29,16 @@ function App() {
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
